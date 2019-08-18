@@ -1,0 +1,102 @@
+<form  #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="PMI" value="servicePayment.formData.PMI">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                        <i class="fa fa-user-circle" 
+                        [class.green-icon]="CardOwner.valid"
+                        [class.red-icon]="CardOwner.invalid && CardOwner.touched"></i>
+                     
+                </div>
+            </div>
+            <input type="text" 
+            class="form-control" 
+            name="CardOwner"
+            #CardOwner="ngModel"
+            [(ngModel)]="servicePayment.formData.CardOwner"
+            placeholder="Card Owner Name"
+            required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                            <i class="fa fa-credit-card "
+                            [class.green-icon]="CardNumber.valid"
+                            [class.red-icon]="CardNumber.invalid && CardNumber.touched"></i>  
+                            
+                    </div>
+                </div>
+                <input type="text" 
+                class="form-control" 
+                name="CardNumber"
+                #CardNumber="ngModel"
+                [(ngModel)]="servicePayment.formData.CardNumber"
+                placeholder="Card Number Name"
+                required  maxlength="16" minlength="16"
+               
+                >
+        </div>
+    </div>
+      
+    <div class="row">
+            <div class="form-group col-md-7">
+                    <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-white">
+                                        <i class="fa fa-calendar-alt" 
+                                        [class.green-icon]="ExpirtionDate.valid"
+                                        [class.red-icon]="ExpirtionDate.invalid && ExpirtionDate.touched"></i>
+                                </div>
+                            </div>
+                            <input type="text" 
+                            class="form-control" 
+                            name="ExpirtionDate"
+                            #ExpirtionDate="ngModel"
+                            [(ngModel)]="servicePayment.formData.ExpirtionDate"
+                            placeholder="MM/YY"
+                            required maxlength="5" minlength="5"
+                            >
+                    </div>
+                </div>
+            
+            
+                 <div class="form-group  col-md-5">
+            
+                    <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-white">
+                                        <i class="fas fa-key"  
+                                        [class.green-icon]="CVV.valid"
+                                        [class.red-icon]="CVV.invalid && CVV.touched"></i>
+                                </div>
+                            </div>
+                            <input type="password" 
+                            class="form-control" 
+                            name="CVV"
+                            #CVV="ngModel"
+                            [(ngModel)]="servicePayment.formData.CVV"
+                            placeholder="CVV"
+                            required maxlength="3" minlength="3"
+                           >
+                    </div>
+                    
+                </div>
+    </div>
+    
+
+    <div class="form-group">
+
+        <button type="submit" class="btn btn-success btn-lg btn-block">
+                <i class="far fa-save"></i>
+            Guardar
+        </button>
+    </div>
+
+
+        
+   
+</form>
